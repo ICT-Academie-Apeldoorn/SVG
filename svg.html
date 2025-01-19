@@ -1,0 +1,414 @@
+
+<h1>Hoofdstuk 3 Basisstructuur van een SVG-bestand</h1>
+
+<h2>3.1	De XML-structuur van SVG</h2>
+<svg xmlns=http://www.w3.org/2000/svg width="200" height="200">
+    <rect width="100" height="100" fill="blue" />
+</svg>
+<h2>3.2	Het svg-element en attributen</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="40" fill="red" />
+</svg>
+
+<h2>3.3	Een eerste eenvoudige SVG-afbeelding maken</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
+    <!-- Rechthoek -->
+    <rect x="50" y="50" width="100" height="50" fill="blue" stroke="black" stroke-width="2" />
+
+    <!-- Cirkel -->
+    <circle cx="200" cy="75" r="40" fill="green" />
+
+    <!-- Lijn -->
+    <line x1="50" y1="150" x2="250" y2="150" stroke="red" stroke-width="3" />
+
+    <!-- Tekst -->
+    <text x="50" y="180" font-size="16" fill="black">Mijn eerste SVG</text>
+</svg>
+
+<h1>4	SVG-vormen en basisgrafieken</h1>
+<h2>4.1	Rechthoeken (<rect>)</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
+    <rect x="10" y="10" width="100" height="50" fill="blue" stroke="black" stroke-width="2" rx="10" ry="10" />
+</svg>
+
+<h2>4.2	Cirkels en ellipsen</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+    <circle cx="50" cy="50" r="40" fill="red" />
+</svg>
+<BR>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
+    <ellipse cx="100" cy="50" rx="80" ry="30" fill="green" />
+</svg>
+
+<h2>4.3	Lijnen en polylijnen</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
+    <line x1="10" y1="10" x2="190" y2="90" stroke="black" stroke-width="2" />
+</svg>
+
+<h2>4.4	Polygonen (<polygon>)</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+    <polygon points="100,10 40,198 190,78 10,78 160,198" fill="orange" stroke="black" stroke-width="2" />
+</svg>
+
+</h1>5	Kleuren, patronen en opvullingen</h1>
+<h2>5.1	Het gebruik van kleuren en kleurmodellen</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
+    <rect x="10" y="10" width="50" height="50" fill="red" />
+    <circle cx="100" cy="50" r="25" fill="#00FF00" />
+    <ellipse cx="150" cy="50" rx="30" ry="20" fill="rgb(0, 0, 255)" />
+</svg>
+<h2>5.2	Opvullingen (fill) en randen (stroke)</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
+    <rect x="10" y="10" width="50" height="50" fill="yellow" stroke="black" stroke-width="3" />
+    <circle cx="100" cy="50" r="25" fill="none" stroke="blue" stroke-width="5" />
+</svg>
+<h2>5.3	Lineaire en radiale verlopen</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
+    <defs>
+        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color: red; stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: blue; stop-opacity: 1" />
+        </linearGradient>
+    </defs>
+    <rect x="10" y="10" width="180" height="80" fill="url(#gradient1)" />
+</svg>
+<BR>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
+    <defs>
+        <radialGradient id="gradient2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color: yellow; stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: green; stop-opacity: 1" />
+        </radialGradient>
+    </defs>
+    <circle cx="100" cy="50" r="40" fill="url(#gradient2)" />
+</svg>
+<h2>5.4	Patronen herhalen met pattern</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
+    <defs>
+        <pattern id="pattern1" width="10" height="10" patternUnits="userSpaceOnUse">
+            <rect width="10" height="10" fill="white" />
+            <circle cx="5" cy="5" r="3" fill="red" />
+        </pattern>
+    </defs>
+    <rect x="10" y="10" width="180" height="80" fill="url(#pattern1)" />
+</svg>
+
+<h1>6	Tekst en typografie</h1>
+<h2>6.1	Tekst toevoegen met text</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100">
+    <text x="10" y="50" font-size="20" fill="black">Hallo SVG!</text>
+</svg>
+<h2>6.2	Positie en uitlijning van tekst</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100">
+    <text x="150" y="50" font-size="20" fill="blue" text-anchor="middle">Uitgelijnde tekst</text>
+</svg>
+
+<h2>6.3	Lettertypes en stijl</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="150">
+    <text x="10" y="30" font-family="Arial" font-size="20">Standaard tekst</text>
+    <text x="10" y="60" font-family="Verdana" font-size="20" font-weight="bold">Vette tekst</text>
+    <text x="10" y="90" font-family="Courier New" font-size="20" font-style="italic">Cursieve tekst</text>
+</svg>
+
+<h2>6.4	Interactieve en dynamische tekst</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100">
+    <style>
+        text[name="6.4"]:hover {
+            fill: red;
+            font-size: 25px;
+        }
+    </style>
+    <text name="6.4" x="10" y="50" font-size="20" fill="black">Beweeg over mij!</text>
+</svg>
+<BR>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100">
+    <text name="6.4" x="10" y="50" font-size="20" fill="black" id="dynamicText">Klik op mij!</text>
+    <script>
+        document.getElementById('dynamicText').addEventListener('click', function() {
+            this.textContent = 'Je hebt geklikt!';
+            this.setAttribute('fill', 'green');
+        });
+    </script>
+</svg>
+
+<h1>Transformeren en schalen</h1>
+<h2>7.1	Translatie, rotatie en schaal</h2>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200">
+    <!-- Originele rechthoek -->
+    <rect x="50" y="50" width="100" height="50" fill="blue" />
+
+    <!-- Getransformeerde rechthoeken -->
+    <rect x="50" y="50" width="100" height="50" fill="red" transform="translate(150, 50)" />
+    <rect x="50" y="50" width="100" height="50" fill="green" transform="rotate(45, 100, 75)" />
+    <rect x="50" y="50" width="100" height="50" fill="orange" transform="scale(1.5, 0.5)" />
+</svg>
+
+<h2>7.2	Het transformeren van vormen met de transform-eigenschap</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200">
+    <circle cx="100" cy="100" r="50" fill="purple" transform="translate(50, 0) scale(1.5) rotate(30, 100, 100)" />
+</svg>
+
+<h2>7.3	Coördinatensystemen en viewport</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100" viewBox="0 0 200 100">
+    <rect x="0" y="0" width="200" height="100" fill="lightblue" />
+    <circle cx="50" cy="50" r="40" fill="red" />
+</svg>
+
+<h2>7.4	Praktische toepassingen van transformaties</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+    <style>
+        rect[name="7.4"] {
+            animation: move 2s infinite alternate;
+        }
+        @keyframes move {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(100px, 100px);
+            }
+        }
+    </style>
+    <rect name="7.4" x="50" y="50" width="50" height="50" fill="green" />
+</svg>
+
+<h1>8	Geavanceerde vormen en paden</h1>
+<h2>8.1	Het tekenen van paden met path</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <path d="M10 80 L100 10 L190 80 Z" fill="lightblue" stroke="blue" stroke-width="2" />
+</svg>
+
+<h2>8.2	Bochten en krommingen</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <path d="M10 80 Q 100 10, 190 80" fill="none" stroke="red" stroke-width="2" />
+</svg>
+<BR>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <path d="M10 80 C 50 10, 150 10, 190 80" fill="none" stroke="green" stroke-width="2" />
+</svg>
+
+<h2>8.3	Combineren van paden en vormen</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <path d="M50 50 L150 50 Q200 50, 200 100 T250 150" fill="none" stroke="purple" stroke-width="2" />
+</svg>
+
+<h2>8.4	Gebruik van arc (bogen) met A</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <path d="M50 50 A50 50 0 1 1 150 50" fill="none" stroke="orange" stroke-width="2" />
+</svg>
+
+<h1>9	Interactiviteit met SVG</h1>
+<h2>9.1	Links toevoegen aan SVG-elementen</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <a href="https://www.example.com" target="_blank">
+        <rect x="50" y="50" width="200" height="50" fill="lightblue" stroke="blue" stroke-width="2" />
+    </a>
+</svg>
+
+<h2>9.2	Het gebruik van CSS voor SVG-styling</h2>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <style>
+        .highlight {
+            fill: yellow;
+            stroke: orange;
+            stroke-width: 3;
+        }
+    </style>
+    <circle cx="150" cy="75" r="50" class="highlight" />
+</svg>
+
+<h2>9.3	Basis interacties met JavaScript</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <rect x="50" y="50" width="200" height="50" fill="lightgreen" id="clickable" />
+    <script>
+        document.getElementById('clickable').addEventListener('click', function() {
+            alert('Je hebt op de rechthoek geklikt!');
+        });
+    </script>
+</svg>
+<BR>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <circle cx="150" cy="75" r="50" fill="blue" id="hoverable" />
+    <script>
+        const circle = document.getElementById('hoverable');
+        circle.addEventListener('mouseover', function() {
+            circle.setAttribute('fill', 'red');
+        });
+        circle.addEventListener('mouseout', function() {
+            circle.setAttribute('fill', 'blue');
+        });
+    </script>
+</svg>
+
+<h2>9.4	Dynamische SVG met data</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <rect x="10" y="10" width="50" height="50" fill="blue" id="dataBox" />
+    <script>
+        const data = [50, 100, 150];
+        const rect = document.getElementById('dataBox');
+        let index = 0;
+
+        rect.addEventListener('click', function() {
+            index = (index + 1) % data.length;
+            rect.setAttribute('width', data[index]);
+        });
+    </script>
+</svg>
+
+<h2>9.5	SVG en toetsenbordinteractie</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" tabindex="0" id="keyboardSvg">
+    <circle cx="150" cy="75" r="50" fill="purple" />
+    <script>
+        const svg = document.getElementById('keyboardSvg');
+        svg.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                alert('Pijl naar rechts ingedrukt!');
+            }
+        });
+    </script>
+</svg>
+
+<h1>10	Animaties in SVG</h1>
+<h2>10.1	Het gebruik van animate-element</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <circle cx="50" cy="75" r="20" fill="blue">
+        <animate attributeName="cx" from="50" to="250" dur="2s" repeatCount="indefinite" />
+    </circle>
+</svg>
+
+<h2>10.2	Het gebruik van animateTransform voor transformaties</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+    <rect x="100" y="100" width="100" height="100" fill="red">
+        <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="3s" repeatCount="indefinite" />
+    </rect>
+</svg>
+
+<h2>Kleuren animeren</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <circle cx="150" cy="75" r="50">
+        <animate attributeName="fill" from="blue" to="green" dur="2s" repeatCount="indefinite" />
+    </circle>
+</svg>
+
+<h2>10.4	Geavanceerde animaties met animateMotion</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+    <path id="circlePath" d="M150,150 m-100,0 a100,100 0 1,1 200,0 a100,100 0 1,1 -200,0" fill="none" stroke="lightgray" />
+    <polygon points="150,140 155,160 145,160" fill="gold">
+        <animateMotion dur="5s" repeatCount="indefinite">
+            <mpath href="#circlePath" />
+        </animateMotion>
+    </polygon>
+</svg>
+
+<h2>10.5	Combineren van meerdere animaties</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <rect x="50" y="50" width="50" height="50" fill="red">
+        <animate attributeName="x" from="50" to="200" dur="3s" repeatCount="indefinite" />
+        <animate attributeName="fill" from="red" to="blue" dur="3s" repeatCount="indefinite" />
+    </rect>
+</svg>
+
+<h2>10.6	SVG-animaties met CSS</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150">
+    <style>
+        @keyframes pulse {
+            0% { r: 20; }
+            50% { r: 40; }
+            100% { r: 20; }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+    <circle cx="150" cy="75" r="20" fill="purple" class="pulse" />
+</svg>
+
+<h1>11	Optimalisatie en toegankelijkheid</h1>
+<h2>11.1	Het optimaliseren van SVG-bestanden voor webgebruik</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+    <symbol id="star" viewBox="0 0 100 100">
+        <polygon points="50,10 61,39 98,39 67,61 79,90 50,70 21,90 33,61 2,39 39,39" fill="gold" />
+    </symbol>
+    <use href="#star" x="0" y="0" width="50" height="50" />
+    <use href="#star" x="100" y="0" width="50" height="50" />
+</svg>
+
+<h2>11.2	Toegankelijkheid en ARIA-rollen voor SVG</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+    <title>Een gele ster</title>
+    <desc>Een decoratieve gele ster tegen een witte achtergrond.</desc>
+    <polygon points="50,10 61,39 98,39 67,61 79,90 50,70 21,90 33,61 2,39 39,39" fill="gold" />
+</svg>
+<BR>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" width="200" height="200">
+    <title id="title">Een ster icoon</title>
+    <desc id="desc">Een gouden ster die wordt gebruikt als decoratie.</desc>
+    <polygon points="50,10 61,39 98,39 67,61 79,90 50,70 21,90 33,61 2,39 39,39" fill="gold" />
+</svg>
+
+<h1>12	Praktische toepassingen van SVG</h1>
+<h2>12.1	SVG in webdesign</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+    <circle cx="50" cy="50" r="40" fill="blue" />
+    <text x="50" y="55" font-size="20" text-anchor="middle" fill="white">Logo</text>
+</svg>
+<BR>
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+    <pattern id="dots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+        <circle cx="5" cy="5" r="2" fill="gray" />
+    </pattern>
+    <rect width="100" height="100" fill="url(#dots)" />
+</svg>
+
+<h2>12.2	Data-visualisatie met SVG</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
+    <rect x="50" y="50" width="40" height="100" fill="blue" />
+    <rect x="100" y="70" width="40" height="80" fill="green" />
+    <rect x="150" y="30" width="40" height="120" fill="red" />
+</svg>
+<BR>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
+    <rect x="50" y="50" width="200" height="100" fill="lightgray" stroke="black" />
+    <text x="150" y="100" text-anchor="middle" fill="black">Kaartregio</text>
+</svg>
+
+<h2>12.3	SVG en responsieve ontwerpen</h2>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50%" height="50%">
+    <circle cx="50" cy="50" r="40" fill="orange" />
+</svg>
+
+<h2>12.4	Animaties in praktische toepassingen</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100">
+    <circle cx="50" cy="50" r="40" fill="lightblue">
+        <animate attributeName="cx" from="50" to="150" dur="2s" repeatCount="indefinite" />
+    </circle>
+</svg>
+
+<h2>12.5	Samenwerking met andere technologieën</h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" id="interactiveSvg">
+    <circle cx="150" cy="100" r="50" fill="red" />
+    <script>
+        const circle = document.querySelector('circle');
+        circle.addEventListener('click', () => {
+            circle.setAttribute('fill', circle.getAttribute('fill') === 'red' ? 'green' : 'red');
+        });
+    </script>
+</svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
